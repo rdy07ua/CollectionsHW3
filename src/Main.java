@@ -1,17 +1,39 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Map<String, String[]> translationMap = new HashMap<>();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+
+        translationMap.put("кіт", new String[]{"cat", "猫", "Katze"});
+        translationMap.put("собака", new String[]{"dog", "犬", "Hund"});
+        translationMap.put("дівчина", new String[]{"girl", "少女", "Mädchen"});
+        translationMap.put("чоловік", new String[]{"man", "男性", "Mann"});
+        translationMap.put("диван", new String[]{"sofa", "ソファ", "Sofa"});
+        translationMap.put("стіл", new String[]{"table", "テーブル", "Tisch"});
+        translationMap.put("стеля", new String[]{"ceiling", "天井", "Decke"});
+        translationMap.put("підлога", new String[]{"floor", "床", "Boden"});
+        translationMap.put("клавіатура", new String[]{"keyboard", "キーボード", "Tastatur"});
+        translationMap.put("панда", new String[]{"panda", "パンダ", "Panda"});
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Оберіть слово для перекладу із списку: кіт, собака, дівчина, чоловік, диван, стіл, стеля, подлога, клавіатура, панда");
+        String userInput = scanner.nextLine();
+
+
+        String[] translations = translationMap.get(userInput);
+
+        if (translations != null) {
+            System.out.println("Переклади для слова '" + userInput + "':");
+            System.out.println("Англійська: " + translations[0]);
+            System.out.println("Японська: " + translations[1]);
+            System.out.println("Німецька: " + translations[2]);
+        } else {
+            System.out.println("Переклад не знайдено.");
         }
+
     }
 }
